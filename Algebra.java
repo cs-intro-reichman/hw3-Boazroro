@@ -26,8 +26,12 @@ public class Algebra {
 	// Returns x1 + x2 Completed&&
 	public static int plus(int x1, int x2) {
 		int sum = x1;
-		for (int i = 0; i < x2; i++) {
-			sum++;
+		for (int i = 0; i < Math.abs(x2); i++) {
+			if (x2 < 0) {
+				sum--;
+			} else {
+				sum++;
+			}
 
 		}
 		return sum;
@@ -96,24 +100,18 @@ public class Algebra {
 
 	}
 
-
-
 	// Returns the integer part of sqrt(x)
 	public static double sqrt(double x) {
-		double epslion = 0.01 , l = 1.0, H = x;
-		
-		double g = (l+H)/2.0;
-		
-	
-		while (Math.abs((g*g)-x) >= epslion) {
-			if (g*g<x)
-			{
-				l=g;
-			}
-			else
-			{
-				H=g;
-				g = (l+H)/2.0;
+		double epslion = 0.01, l = 1.0, H = x;
+
+		double g = (l + H) / 2.0;
+
+		while (Math.abs((g * g) - x) >= epslion) {
+			if (g * g < x) {
+				l = g;
+			} else {
+				H = g;
+				g = (l + H) / 2.0;
 			}
 
 		}
