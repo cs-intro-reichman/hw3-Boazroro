@@ -106,11 +106,15 @@ public class Algebra {
 
 		}
 		for (int i = 0; i < x2; i++) {
-			while (x1 > 0) {
+			if (x1 > 0 && x2>0) {
 				x1 = minus(x1, x2);
 
 				sum++;
 
+			}
+			else{
+				x1 = minus(x1, x2*-1);
+				sum++;
 			}
 
 		}
