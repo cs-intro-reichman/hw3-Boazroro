@@ -145,11 +145,19 @@ public class Algebra {
 		int g = 1;
 		double epsilon = 0.01;
 		int increment = 1;
-		while (g * g - x >= epsilon) {
+		if (x==0) {
+			return x;
+			
+		}
+		if (x==1) {
+			return x;
+			
+		}
+		while (minus(x, times(g, g)) >= epsilon) {
 			g+=increment;
 
 		}
-		return g-1;
+		return g;
 	}
 
 }
