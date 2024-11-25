@@ -5,63 +5,166 @@
 
 public class Algebra {
 	public static void main(String args[]) {
-	    // Tests some of the operations
-	    System.out.println(plus(2,3));   // 2 + 3
-	    System.out.println(minus(7,2));  // 7 - 2
-   		System.out.println(minus(2,7));  // 2 - 7
- 		System.out.println(times(3,4));  // 3 * 4
-   		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
-   		System.out.println(pow(5,3));      // 5^3
-   		System.out.println(pow(3,5));      // 3^5
-   		System.out.println(div(12,3));   // 12 / 3    
-   		System.out.println(div(5,5));    // 5 / 5  
-   		System.out.println(div(25,7));   // 25 / 7
-   		System.out.println(mod(25,7));   // 25 % 7
-   		System.out.println(mod(120,6));  // 120 % 6    
-   		System.out.println(sqrt(36));
+		// Tests some of the operations
+		System.out.println(plus(2, 3)); // 2 + 3 Completed&&
+		System.out.println(minus(7, 2)); // 7 - 2 Completed&&
+		System.out.println(minus(2, 7)); // 2 - 7 Completed&&
+		System.out.println(times(3, 4)); // 3 * 4 Completed&&
+		System.out.println(plus(2, times(4, 2))); // 2 + 4 * 2 Completed&&
+		System.out.println(pow(5, 3)); // 5^3 Completed&&
+		System.out.println(pow(3, 5)); // 3^5 Completed&&
+		System.out.println(div(12, 3)); // 12 / 3 Completed&&
+		System.out.println(div(5, 5)); // 5 / 5 Completed&&
+		System.out.println(div(25, 7)); // 25 / 7 Completed&&
+		System.out.println(mod(25, 7)); // 25 % 7 Completed$$
+		System.out.println(mod(120, 6)); // 120 % 6 Completed$$
+		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123));
-	}  
+		System.out.println(sqrt(76123));
+	}
 
-	// Returns x1 + x2
+	// Returns x1 + x2 Completed&&
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int sum = x1;
+		if (x2 > 0)
+			for (int i = 0; i < Math.abs(x2); i++) {
+
+				sum++;
+			}
+		else {
+
+			for (int j = 0; j < times(x2, -1); j++) {
+				sum--;
+			}
+		}
+		return sum;
 	}
 
-	// Returns x1 - x2
+	// Returns x1 - x2 Completed&&
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int sum = x1;
+		if (x2 < 0) {
+
+			for (int i = 0; i < times(x2, -1); i++) {
+				sum++;
+			}
+		} else {
+			for (int j = 0; j < x2; j++) {
+				sum--;
+			}
+		}
+		return sum;
 	}
 
-	// Returns x1 * x2
+	// Returns x1 * x2 Completed&&
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int sum = 0;
+
+		// Handle the zero case
+		if (x1 == 0 || x2 == 0) {
+			return sum;
+		}
+
+		if (x1 < 0) {
+			x1 = -x1;
+			x2 = -x2;
+		}
+
+		if (x2 < 0) {
+			for (int i = 0; i < x1; i++) {
+				sum = plus(sum, x2);
+			}
+			return sum;
+		} else {
+
+			for (int i = 0; i < x1; i++) {
+				sum = plus(sum, x2);
+			}
+			return sum;
+		}
 	}
 
-	// Returns x^n (for n >= 0)
+	// Returns x^n (for n >= 0) Completed&&
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		int sum = 1;
+		if (x < 0 && n % 2 == 0) {
+			x = -x;
+		}
+
+		for (int i = 1; i <= n; i++) {
+			sum = times(sum, x);
+
+		}
+		return sum;
 	}
 
-	// Returns the integer part of x1 / x2 
+	// Returns the integer part of x1 / x2 Completed&&
 	public static int div(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int sum = 0;
+
+		if (x2 == 0) {
+			return 0;
+		}
+
+		if (x1 == 0) {
+			return sum;
+		}
+
+		boolean isNegative = (x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0);
+
+		x1 = x1 < 0 ? -x1 : x1;
+		x2 = x2 < 0 ? -x2 : x2;
+
+		while (x1 >= x2) {
+			x1 = minus(x1, x2);
+			sum++;
+		}
+
+		return isNegative ? -sum : sum;
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
-	}	
+		int sum = 0;
 
-	// Returns the integer part of sqrt(x) 
+		for (int i = 0; i < x2; i++) {
+			while (x1 >= x2) {
+				x1 = minus(x1, x2);
+
+				sum++;
+
+			}
+
+		}
+		return x1;
+
+	}
+
+	// Returns the integer part of sqrt(x)
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
-	}	  	  
+		if (x == 0 || x == 1) {
+			return x; 
+		}
+		int l = 1, h = x, result = 0;
+	
+		while (l <= h) {
+			int mid = l + (h - l) / 2;
+	
+			
+			if (mid == x / mid) {
+				return mid; 
+			} else if (mid < x / mid) {
+				
+				l = mid + 1;
+				result = mid; 
+			} else {
+				
+				h = mid - 1;
+			}
+		}
+	
+		return result; 
+	}
+	
+
 }
