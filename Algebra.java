@@ -64,31 +64,32 @@ public class Algebra {
 			return sum;
 		}
 
-		if (x1 < 0 || x2 < 0) {
+		if (x1 < 0 && x2 > 0 || x1 > 0 && x2 < 0) {
 
 			for (int i = 0; i < x1 * -1; i++) {
-				if (x2 < 0) {
-					sum = plus(sum, x2 * -1);
 
-				} else {
-					sum = plus(sum, x2);
-				}
+				sum = plus(sum, x2 * -1);
+
+			}
+
+			return sum;
+
+		} else {
+			for (int i = 0; i < x1; i++) {
+				sum = plus(sum, x2);
 
 			}
 			return sum;
-
 		}
-		for (int i = 0; i < x1; i++) {
-			sum = plus(sum, x2);
-
-		}
-		return sum;
-
 	}
 
 	// Returns x^n (for n >= 0) Completed&&
 	public static int pow(int x, int n) {
 		int sum = 1;
+		if (x<0 && n%2==0) 
+		{
+			x=-x;
+		}
 
 		for (int i = 1; i <= n; i++) {
 			sum = times(sum, x);
