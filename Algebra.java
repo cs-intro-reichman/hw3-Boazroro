@@ -26,13 +26,16 @@ public class Algebra {
 	// Returns x1 + x2 Completed&&
 	public static int plus(int x1, int x2) {
 		int sum = x1;
-		for (int i = 0; i < Math.abs(x2); i++) {
-			if (x2 < 0) {
-				sum--;
-			} else {
+		if (x2 > 0)
+			for (int i = 0; i < Math.abs(x2); i++) {
+
 				sum++;
 			}
+		else {
 
+			for (int j = 0; j < x2 * -1; j++) {
+				sum--;
+			}
 		}
 		return sum;
 	}
@@ -40,15 +43,30 @@ public class Algebra {
 	// Returns x1 - x2 Completed&&
 	public static int minus(int x1, int x2) {
 		int sum = x1;
-		for (int i = 0; i < x2; i++) {
+		if (x2<0) {
+			
+		
+		for (int i = 0; i < x2*-1; i++) {
+			sum++;
+		}
+	}
+	else{
+		for ( int j =0; j<x2;j++)
+		{
 			sum--;
 		}
+	}
 		return sum;
 	}
 
 	// Returns x1 * x2 Completed&&
 	public static int times(int x1, int x2) {
 		int sum = 0;
+		if (x1==0 || x2==0) {
+			
+		return sum;	
+		}
+		
 
 		for (int i = 0; i < x1; i++) {
 			sum = plus(sum, x2);
@@ -72,6 +90,10 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 Completed&&
 	public static int div(int x1, int x2) {
 		int sum = 0;
+		if (x1==0) {
+			return sum;
+			
+		}
 		for (int i = 0; i < x2; i++) {
 			while (x1 > 0) {
 				x1 = minus(x1, x2);
@@ -87,6 +109,7 @@ public class Algebra {
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
 		int sum = 0;
+		int m = 1;
 		for (int i = 0; i < x2; i++) {
 			while (x1 >= x2) {
 				x1 = minus(x1, x2);
