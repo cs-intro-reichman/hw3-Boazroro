@@ -142,19 +142,29 @@ public class Algebra {
 
 	// Returns the integer part of sqrt(x)
 	public static int sqrt(int x) {
-		int g = 1;
-		
-		int increment = 1;
+		if (x == 0 || x == 1) {
+			return x; 
+		}
+		int l = 1, h = x, result = 0;
 	
-		if (x==1|| x==0) {
-			return x;
+		while (l <= h) {
+			int mid = l + (h - l) / 2;
+	
 			
+			if (mid == x / mid) {
+				return mid; 
+			} else if (mid < x / mid) {
+				
+				l = mid + 1;
+				result = mid; 
+			} else {
+				
+				h = mid - 1;
+			}
 		}
-		while (x <= times(g, g)) {
-			g+=increment;
-
-		}
-		return g-1;
+	
+		return result; 
 	}
+	
 
 }
