@@ -18,9 +18,9 @@ public class Algebra {
 		System.out.println(div(25, 7)); // 25 / 7 Completed&&
 		System.out.println(mod(25, 7)); // 25 % 7 Completed$$
 		System.out.println(mod(120, 6)); // 120 % 6 Completed$$
-		//System.out.println(sqrt(36));
-	//	System.out.println(sqrt(263169));
-		//System.out.println(sqrt(76123));
+		System.out.println(sqrt(36));
+		System.out.println(sqrt(263169));
+		System.out.println(sqrt(76123));
 	}
 
 	// Returns x1 + x2 Completed&&
@@ -133,24 +133,22 @@ public class Algebra {
 
 	}
 
-	/*
-	 * // Returns the integer part of sqrt(x)
-	 * public static double sqrt(double x) {
-	 * double epslion = 0.01, l = 1.0, H = x;
-	 * 
-	 * double g = (l + H) / 2.0;
-	 * 
-	 * while (Math.abs((g * g) - x) >= epslion) {
-	 * if (g * g < x) {
-	 * l = g;
-	 * } else {
-	 * H = g;
-	 * g = (l + H) / 2.0;
-	 * }
-	 * 
-	 * }
-	 * return g;
-	 * }
-	 */
+	// Returns the integer part of sqrt(x)
+	public static double sqrt(double x) {
+		double epslion = 0.01, l = 1.0, H = x;
+
+		double g = (l + H) / 2.0;
+
+		while (Math.abs((g * g) - x) >= epslion) {
+			if (g * g < x) {
+				l = g;
+			} else {
+				H = g;
+				g = (l + H) / 2.0;
+			}
+
+		}
+		return g;
+	}
 
 }
