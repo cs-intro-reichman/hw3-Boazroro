@@ -123,7 +123,7 @@ public class Algebra {
 
 	}
 
-	// Returns the integer part of sqrt(x)
+	/* // Returns the integer part of sqrt(x)
 	public static double sqrt(double x) {
 		double epslion = 0.01, l = 1.0, H = x;
 
@@ -139,6 +139,6 @@ public class Algebra {
 
 		}
 		return g;
-	}
+	} */
 
 }
