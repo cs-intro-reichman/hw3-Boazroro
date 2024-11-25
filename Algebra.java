@@ -101,24 +101,26 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 Completed&&
 	public static int div(int x1, int x2) {
 		int sum = 0;
+
+		if (x2 == 0) {
+			return 0;
+		}
+
 		if (x1 == 0) {
 			return sum;
-
 		}
-		for (int i = 0; i < x2; i++) {
-			if (x1 > 0 && x2>0) {
-				x1 = minus(x1, x2);
 
-				sum++;
+		boolean isNegative = (x1 < 0 && x2 > 0) || (x1 > 0 && x2 < 0);
 
-			}
-			else{
-				x1 = minus(x1, x2*-1);
-				sum++;
-			}
+		x1 = x1 < 0 ? -x1 : x1;
+		x2 = x2 < 0 ? -x2 : x2;
 
+		while (x1 >= x2) {
+			x1 = minus(x1, x2);
+			sum++;
 		}
-		return sum;
+
+		return isNegative ? -sum : sum;
 	}
 
 	// Returns x1 % x2
