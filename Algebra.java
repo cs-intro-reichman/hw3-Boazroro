@@ -126,7 +126,7 @@ public class Algebra {
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
 		int sum = 0;
-		int m = 1;
+
 		for (int i = 0; i < x2; i++) {
 			while (x1 >= x2) {
 				x1 = minus(x1, x2);
@@ -141,21 +141,15 @@ public class Algebra {
 	}
 
 	// Returns the integer part of sqrt(x)
-	public static double sqrt(double x) {
-		double epslion = 0.01, l = 1.0, H = x;
-
-		double g = (l + H) / 2.0;
-
-		while (Math.abs((g * g) - x) >= epslion) {
-			if (g * g < x) {
-				l = g;
-			} else {
-				H = g;
-				g = (l + H) / 2.0;
-			}
+	public static int sqrt(int x) {
+		int g = 1;
+		double epsilon = 0.01;
+		int increment = 1;
+		while (g * g - x >= epsilon) {
+			g+=increment;
 
 		}
-		return g;
+		return g-1;
 	}
 
 }
