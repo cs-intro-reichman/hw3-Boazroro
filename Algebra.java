@@ -18,9 +18,9 @@ public class Algebra {
 		System.out.println(div(25, 7)); // 25 / 7 Completed&&
 		System.out.println(mod(25, 7)); // 25 % 7 Completed$$
 		System.out.println(mod(120, 6)); // 120 % 6 Completed$$
-		System.out.println(sqrt(36));
-		System.out.println(sqrt(263169));
-		System.out.println(sqrt(76123));
+		//System.out.println(sqrt(36));
+	//	System.out.println(sqrt(263169));
+		//System.out.println(sqrt(76123));
 	}
 
 	// Returns x1 + x2 Completed&&
@@ -43,45 +43,41 @@ public class Algebra {
 	// Returns x1 - x2 Completed&&
 	public static int minus(int x1, int x2) {
 		int sum = x1;
-		if (x2<0) {
-			
-		
-		for (int i = 0; i < x2*-1; i++) {
-			sum++;
+		if (x2 < 0) {
+
+			for (int i = 0; i < x2 * -1; i++) {
+				sum++;
+			}
+		} else {
+			for (int j = 0; j < x2; j++) {
+				sum--;
+			}
 		}
-	}
-	else{
-		for ( int j =0; j<x2;j++)
-		{
-			sum--;
-		}
-	}
 		return sum;
 	}
 
 	// Returns x1 * x2 Completed&&
 	public static int times(int x1, int x2) {
 		int sum = 0;
-		if (x1==0 || x2==0) {
-			
-		return sum;	
-		}
-		
-if (x1<0 || x2<0) {
-	
-	for (int i = 0; i < x1*-1; i++) {
-		if (x2<0) {
-			sum = plus(sum, x2*-1);
-			
-		}
-		else{
-		sum = plus(sum, x2);
+		if (x1 == 0 || x2 == 0) {
+
+			return sum;
 		}
 
-	}
-	return sum;
-	
-}
+		if (x1 < 0 || x2 < 0) {
+
+			for (int i = 0; i < x1 * -1; i++) {
+				if (x2 < 0) {
+					sum = plus(sum, x2 * -1);
+
+				} else {
+					sum = plus(sum, x2);
+				}
+
+			}
+			return sum;
+
+		}
 		for (int i = 0; i < x1; i++) {
 			sum = plus(sum, x2);
 
@@ -104,9 +100,9 @@ if (x1<0 || x2<0) {
 	// Returns the integer part of x1 / x2 Completed&&
 	public static int div(int x1, int x2) {
 		int sum = 0;
-		if (x1==0) {
+		if (x1 == 0) {
 			return sum;
-			
+
 		}
 		for (int i = 0; i < x2; i++) {
 			while (x1 > 0) {
@@ -137,22 +133,24 @@ if (x1<0 || x2<0) {
 
 	}
 
-	/* // Returns the integer part of sqrt(x)
-	public static double sqrt(double x) {
-		double epslion = 0.01, l = 1.0, H = x;
-
-		double g = (l + H) / 2.0;
-
-		while (Math.abs((g * g) - x) >= epslion) {
-			if (g * g < x) {
-				l = g;
-			} else {
-				H = g;
-				g = (l + H) / 2.0;
-			}
-
-		}
-		return g;
-	} */
+	/*
+	 * // Returns the integer part of sqrt(x)
+	 * public static double sqrt(double x) {
+	 * double epslion = 0.01, l = 1.0, H = x;
+	 * 
+	 * double g = (l + H) / 2.0;
+	 * 
+	 * while (Math.abs((g * g) - x) >= epslion) {
+	 * if (g * g < x) {
+	 * l = g;
+	 * } else {
+	 * H = g;
+	 * g = (l + H) / 2.0;
+	 * }
+	 * 
+	 * }
+	 * return g;
+	 * }
+	 */
 
 }
