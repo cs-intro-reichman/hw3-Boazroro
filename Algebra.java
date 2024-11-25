@@ -67,7 +67,21 @@ public class Algebra {
 		return sum;	
 		}
 		
+if (x1<0 || x2<0) {
+	
+	for (int i = 0; i < x1*-1; i++) {
+		if (x2<0) {
+			sum = plus(sum, x2*-1);
+			
+		}
+		else{
+		sum = plus(sum, x2);
+		}
 
+	}
+	return sum;
+	
+}
 		for (int i = 0; i < x1; i++) {
 			sum = plus(sum, x2);
 
