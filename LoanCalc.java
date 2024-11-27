@@ -2,16 +2,18 @@ public class LoanCalc {
 
     static double epsilon = 0.001;
     static int iterationCounter;
-    int g =0;
 
     public static void main(String[] args) {
         double loan = Double.parseDouble(args[0]);
         double rate = Double.parseDouble(args[1]);
         int n = Integer.parseInt(args[2]);
-        double payment = Double.parseDouble(args[3]);
+
+        double payment = calculatePayment(loan, rate, n);
 
         System.out.println("Loan = " + loan + ", interest rate = " + rate + "%, periods = " + n);
-        System.out.println("Ending balance with test payment: " + endBalance(loan, rate, n, payment));
+        System.out.println("Calculated periodical payment: " + payment);
+
+        System.out.println("Ending balance with calculated payment: " + endBalance(loan, rate, n, payment));
 
         System.out.print("\nPeriodical payment, using brute force: ");
         double bruteForcePayment = bruteForceSolver(loan, rate, n, epsilon);
@@ -62,5 +64,11 @@ public class LoanCalc {
             iterationCounter++;
         }
         return mid;
+    }
+
+    private static double calculatePayment(double loan, double rate, int n) {
+        double low = loan / n;
+        double high = loan * Math.pow(1 + rate / 100, n) / n;
+        return (low + high) / 2;  
     }
 }
