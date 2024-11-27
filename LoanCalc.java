@@ -2,6 +2,7 @@ public class LoanCalc {
 
     static double epsilon = 0.001;
     static int iterationCounter;
+    int g =0;
 
     public static void main(String[] args) {
         double loan = Double.parseDouble(args[0]);
